@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic versioning :mage: [tag 0.0.1](0.0.1)
+## Semantic versioning :mage: [tag 0.0.1](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.1)
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
 
@@ -11,7 +11,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Terraform CLI installation process for Linux: [tag 0.0.2](0.0.2)
+### Terraform CLI installation process for Linux: [tag 0.0.2](/tree/0.0.2)
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -87,7 +87,7 @@ total 4
 ```
 > quick tips of the flow is (`before init command`)
 
-### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](0.0.3)
+### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](/tree/0.0.3)
 
 env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
 
@@ -105,7 +105,7 @@ $ gp env PROJECT_ROOT='/usr/bin' -> sets env vars for global i.e for all the she
 - Make sure that the global env vars does not break any other software for your system 
 - Make sure to use the env vars at the right place ex: to install all the packages you could **cd to workspace** and to work on the project **cd $PROJECT_ROOT** at the end of the .gitpo.yml file
 
-### AWS CLI installation: [tag 0.0.4](0.0.4)
+### AWS CLI installation: [tag 0.0.4](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.4)
 AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cli)
 
 [Getting started with AWS CLI installs](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -115,7 +115,7 @@ AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cl
 #### Step 1:
 Add the [aws bash script](/bin/install_aws_cli) to the [gitpod.yml](.gitpod.yml) under the before statement as like the terraform
 
-> note that there isthe below piece of commands for aws in the .gitpod.yml file
+> note that below piece of commands for aws in the .gitpod.yml file
 
 ```
 - name: aws-cli
@@ -126,8 +126,41 @@ Add the [aws bash script](/bin/install_aws_cli) to the [gitpod.yml](.gitpod.yml)
 
 Generally we need to remember the command for each services but this env vars can automatically prompt the options available for each services of the aws on the shell
 
-We can check if the aws credentil are configured correctly by running below command:
+#### Step 2:
+- Open AWS console and create an IAM user specifically for the terraformbootcamp
+- Add appropriate user permission for the IAM user
+- Get the user access key by going into the below
+
+`User->Security Credentials->Access key->CLI`
+- Include the value in the respective env vars and make them as global env vars on the shell
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_DEFAULT_REGION=us-west-2
+```
+******Please****** note that the credentials from AWS can't be saved in .gitpod.yml file or any file in the Gitpod, other wise it will result in violation and AWS account can be locked autmatically 
+
+Also, there could be cyber attackers hacking your aws account to use resources for their business 
+
+Once IAM credentials are obtained, add env vars for them as globally as below:
+```json
+gp env AWS_ACCESS_KEY_ID='AKIAIOSFODNN7EXAMPLE'
+gp env AWS_SECRET_ACCESS_KEY='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+gp env AWS_DEFAULT_REGION='us-west-2'
+```
+
+We can check if the aws credentials are configured correctly by running below command:
 ```
 aws sts get-caller-identity
 ```
+
+When you are successful with the IAM credential addtion to gitpod as a global variable then you will see output to `aws sts get-caller-identity` as below:
+```json
+{
+    "UserId": "AKIAIOSFODNN7EXAMPLE",
+    "Account": "123456789101",
+    "Arn": "arn:aws:iam::123456789101:user/terraform-beginner-bootcamp-laks"
+}
+```
+
 
