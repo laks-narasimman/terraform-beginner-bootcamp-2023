@@ -115,6 +115,19 @@ AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cl
 #### Step 1:
 Add the [aws bash script](/bin/install_aws_cli) to the [gitpod.yml](.gitpod.yml) under the before statement as like the terraform
 
+Make sure that the new aws cli bash file is executable 
+> chmod 744 /bin/installaws_cli
+
+> run the `source ./bin/install_aws_cli` and make sure it installs AWS cli
+> if it run into issues/errors like "already aws is intalled" then try to add below lines in the code
+
+```
+cd /workspace
+rm -f '/workspace/awscliv2.zip'
+rm -rf '/workspace/aws'
+```
+This will make sure that the existing aws files are removed and fresh aws is installed
+
 > note that below piece of commands for aws in the .gitpod.yml file
 
 ```
@@ -163,4 +176,4 @@ When you are successful with the IAM credential addtion to gitpod as a global va
 }
 ```
 
-
+This shall ensure that the aws and terrform cli are ready to be used for the project
