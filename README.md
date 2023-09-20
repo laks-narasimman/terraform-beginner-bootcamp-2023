@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic versioning :mage:
+## Semantic versioning :mage: `tag 0.0.1`
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
 
@@ -11,7 +11,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Terraform CLI installation process for Linux:
+### Terraform CLI installation process for Linux: `tag 0.0.2`
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -86,4 +86,22 @@ total 4
     source /bin/install_terraform_cli
 ```
 > quick tips of the flow is (`before init command`)
+
+### How to add an enviroment variable(env vars) for the project: `tag 0.0.3`
+
+env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
+
+```
+$ env   -> this command shows the existing env vars in the system
+$ env|grep 'host' -> this can provide specific env vars involves word as host
+$ export PROJECT_ROOT='/usr/bin' -> this command sets an env vars for that particular shell
+$ echo $PROJECT_ROOT -> can display the env vars value on the shell
+$ gp env PROJECT_ROOT='/usr/bin' -> sets env vars for global i.e for all the shells
+```
+
+### How to set env vars in gitpod 
+- Use [env file](/bin/.env.example) 
+- Add the env vars as many as needed for the project
+- Make sure that the global env vars does not break any other software for your system 
+- Make sure to use the env vars at the right place ex: to install all the packages you could **cd to workspace** and to work on the project **cd $PROJECT_ROOT** at the end of the .gitpo.yml file
 
