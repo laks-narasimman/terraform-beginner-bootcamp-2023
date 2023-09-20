@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic versioning :mage: `tag 0.0.1`
+## Semantic versioning :mage: [tag 0.0.1](0.0.1)
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
 
@@ -11,7 +11,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Terraform CLI installation process for Linux: `tag 0.0.2`
+### Terraform CLI installation process for Linux: [tag 0.0.2](0.0.2)
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -87,7 +87,7 @@ total 4
 ```
 > quick tips of the flow is (`before init command`)
 
-### How to add an enviroment variable(env vars) for the project: `tag 0.0.3`
+### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](0.0.3)
 
 env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
 
@@ -104,4 +104,30 @@ $ gp env PROJECT_ROOT='/usr/bin' -> sets env vars for global i.e for all the she
 - Add the env vars as many as needed for the project
 - Make sure that the global env vars does not break any other software for your system 
 - Make sure to use the env vars at the right place ex: to install all the packages you could **cd to workspace** and to work on the project **cd $PROJECT_ROOT** at the end of the .gitpo.yml file
+
+### AWS CLI installation: [tag 0.0.4](0.0.4)
+AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cli)
+
+[Getting started with AWS CLI installs](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+[set up aws cli env ](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+#### Step 1:
+Add the [aws bash script](/bin/install_aws_cli) to the [gitpod.yml](.gitpod.yml) under the before statement as like the terraform
+
+> note that there isthe below piece of commands for aws in the .gitpod.yml file
+
+```
+- name: aws-cli
+    env:
+      AWS_CLI_AUTO_PROMPT: on-partial ->this env vars is useful to provide the aws services calls on the shell
+```
+> ex: aws sts get-caller-identity
+
+Generally we need to remember the command for each services but this env vars can automatically prompt the options available for each services of the aws on the shell
+
+We can check if the aws credentil are configured correctly by running below command:
+```
+aws sts get-caller-identity
+```
 
