@@ -11,7 +11,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Terraform CLI installation process for Linux: [tag 0.0.2](/tree/0.0.2)
+### Terraform CLI installation process for Linux: [tag 0.0.2](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.2)
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -87,7 +87,7 @@ total 4
 ```
 > quick tips of the flow is (`before init command`)
 
-### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](/tree/0.0.3)
+### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.3)
 
 env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
 
