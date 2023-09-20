@@ -176,4 +176,4 @@ When you are successful with the IAM credential addtion to gitpod as a global va
 }
 ```
 
-
+This shall ensure that the aws and terrform cli are ready to be used for the project
