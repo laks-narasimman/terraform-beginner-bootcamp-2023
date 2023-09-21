@@ -177,3 +177,103 @@ When you are successful with the IAM credential addtion to gitpod as a global va
 ```
 
 This shall ensure that the aws and terrform cli are ready to be used for the project
+
+
+## Terraform console initialization: [tag 0.0.5](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.5)
+
+### Terraform registry:
+
+Contains two major thing:
+- **Providers** - API Plugin for all the cloud sevice providers like **AWS, AZURE, Google, Oracle etc.,** 
+- **Modules** - Packaging large amount of terraform code into a single library for ease of use, share etc.,
+
+Please find the [Terraform registry here](https://registry.terraform.io/)
+
+### Terraform [main file](main.tf):
+
+> __main.tf__ is the impotant file for Terraform to create modules required for the terraform projects
+
+Once we have the basic understanding of the Terraform set up, copy the piece of code from **terraform random** provider on the right side of the page under `use provider` section as shown in the screenshot:
+
+Random api's config code: ![Test](image-3.png)
+
+
+> note that we are using Random as provider API for this Terraform project although we connect to AWS
+
+```
+terraform {
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
+  }
+}
+```
+After this in the terraform Random provider page `goto->documentation->resources->random_string`
+
+Copy the sample code and modify as below and add the same in the main.tf file:
+```
+resource "random_string" "bucket_name" {
+  length           = 16
+  special          = false
+}
+```
+So, with this we come to understand that we are initializing random provider api and defining the **bucket_name** env vars to be of a **string** and to have not more than 16 characters  
+
+We need to have an output statement to see if the **bucket_name** is being created by Terraform or not
+
+```
+output "random_bucket_name" {
+    value = random_string.bucket_name.result
+  }
+```
+### Terraform init:
+
+once we have the [main.tf](main.tf) ready , go to the shell and initiate  terraform by 
+> execute `$ terraform init` -> This downloads the binaries for the terraform provider that we use in the project 
+
+You will notice that there are two new files created in the gitpod 
+- **[.terraform.lock.hcl](.terraform.lock.hcl)** - this is to make sure you landing zone in terraform has the same environment for future landings i.e locking the current environement unchanged for future use. 
+
+> Commit to the version control system i.e Github? **Yes**
+
+Little deeper understanding of this file:
+This file stores the registry of the provider and the version of the provider as below
+
+`provider "registry.terraform.io/hashicorp/random"`
+
+- **[.terraform folder](.terraform)** - this folder also maintained by `terraform init` and has a binary code written **Go Language** for the provider **random**
+
+> another thing about the .terraform folder is that the folder should not be commited as this gets initialized every time we create a new gitpod workspace.
+
+> To skip any folders or files from being comitted to git , we can use a file called [.gitignore](.gitignore). Inside the file provide the input with one line understanding as give below:
+```
+# Local .terraform directories
+**/.terraform/*
+```
+> Commit to the version control system i.e github?: **No**
+
+### Terraform Plan:
+
+> execute `$ terraform plan` this will generate a changeset, about the current state of the infrastructure and what will be changed 
+
+### Terraform apply:
+
+> execute `$ terraform apply` this prompt you to say **yes** (note that this is casesensitive so **Yes** will not work) for any other option apart from **yes** plan will not be applied. Also, this executes plan and pass the changeset to be executed by terraform
+  
+> execute `$ terrafor apply --auto-approve` -this will ensure that the future changes are automatically approved and also Outputs the results : that we have  defined in [main.tf](main.tf)
+
+> execute `$ terraform output or $ terraform output random_bucket_name` to check if the bucket is created successfully
+
+
+#### Terraform file state:
+`terraform.tfstate` is the file that contains current state of the infrastructure 
+
+> This file is very critical and contains sensitive data, can't afford to lose this file or change aything maually
+
+> Commit this file to version control system i.e github: **No**
+
+`terraform.tfstate.backup` is the file that contains the previous state of the infrastructure
+
+
