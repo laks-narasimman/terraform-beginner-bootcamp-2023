@@ -193,10 +193,7 @@ Please find the [Terraform registry here](https://registry.terraform.io/)
 
 > __main.tf__ is the impotant file for Terraform to create modules required for the terraform projects
 
-Once we have the basic understanding of the Terraform set up, copy the piece of code from **terraform random** provider on the right side of the page under `use provider` section as shown in the screenshot:
-
-Random api's config code: 
-![Alt text](image.png)
+Once we have the basic understanding of the Terraform set up, copy the piece of code from **terraform random** provider on the right side of the page under `use provider` :
 
 > note that we are using Random as provider API for this Terraform project although we connect to AWS
 
