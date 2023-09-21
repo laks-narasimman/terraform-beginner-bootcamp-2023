@@ -339,14 +339,16 @@ Changes to Outputs:
 
 
 
-<img src="./Destroy_old-bucket_create_aws_bucket.png" alt="Destroying old bucket and creating new bucket name locally">
+<img src="./docs/assets/Destroy_old-bucket_create_aws_bucket.png" alt="Destroying old bucket and creating new bucket name locally">
 
 
 
 
 
-<img src="./new_bucket_aws.png" alt="new bucket created in aws">
+<img src="./docs/assets/new_bucket_aws.png" alt="new bucket created in aws">
+
+
 > execute `$ terraform destroy`` -> either you could manually enter "yes" or you alternatively execute `$ terraform apply --auto-approve` to delete the S3 bucket from AWS
 
 
-<img src="./Destroying_s3_bucket.png" alt="deleting S3 bucket aws">
+<img src="./docs/assets/Destroying_s3_bucket.png" alt="deleting S3 bucket aws">
