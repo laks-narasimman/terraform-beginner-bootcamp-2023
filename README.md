@@ -195,8 +195,8 @@ Please find the [Terraform registry here](https://registry.terraform.io/)
 
 Once we have the basic understanding of the Terraform set up, copy the piece of code from **terraform random** provider on the right side of the page under `use provider` section as shown in the screenshot:
 
-Random api's config code: ![Test](image-3.png)
-
+Random api's config code: 
+![Alt text](image.png)
 
 > note that we are using Random as provider API for this Terraform project although we connect to AWS
 
