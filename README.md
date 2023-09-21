@@ -337,10 +337,10 @@ Changes to Outputs:
 
 > execute `$ terraform apply ` and check in AWS console if it has created an S3 bucket with the name
 
-![terraform console output](Destroy_old-bucket_create_aws_bucket.png)
+![terraform console output](./Destroy_old-bucket_create_aws_bucket.png)
 
-![AWS console snippet of S3 bucket](new_bucket_aws.png)
+![AWS console snippet of S3 bucket](./new_bucket_aws.png)
 
 > execute `$ terraform destroy`` -> either you could manually enter "yes" or you alternatively execute `$ terraform apply --auto-approve` to delete the S3 bucket from AWS
 
-![S3 bucket destroyed from aws](Destroying_s3_bucket.png)
+![S3 bucket destroyed from aws](./Destroying_s3_bucket.png)
