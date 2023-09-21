@@ -276,3 +276,71 @@ This file stores the registry of the provider and the version of the provider as
 `terraform.tfstate.backup` is the file that contains the previous state of the infrastructure
 
 
+### Terraform S3 Bucket creation and Terraform Destroy: [tag 0.0.6](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.6)
+
+#### Terraform AWS provider set up:
+
+Similar to the set up of Random provider , need to set up aws provider
+
+Go to [terraform providers](https://registry.terraform.io/providers/hashicorp/aws/latest) click on the "use provider" and copy the code
+```
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.17.0"
+    }
+  }
+}
+
+provider "aws" {
+  # Configuration options
+}
+```
+
+#### Important : > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
+
+#### Terraform S3 config:
+add the sample S3 bucket code snippet from [aws s3 bucket terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) and you need to make sure that the bucket name generated out of the random string is matching with the criteria of S3 Bucket naming convention
+
+#### Terraform project initiation:
+
+> execute `$ terraform init` to start the terraform with both __random__ and __aws__ providers
+
+
+
+> notice that the `$ terraform init` created another provider library for aws provider here -> ``.terraform/providers/registry.terraform.io/hashicorp/aws/5.16.2/linux_amd64`
+
+>Notice that the `.terraform.lock.hcl` file also got updated and needs to be comitted
+
+>execute `$ terraform validate` to check if the main.tf excutes fine before plan
+
+>execute `$terraform plan` notice that the output higlights what is going to change
+
+```
+# random_string.bucket_name must be replaced
+-/+ resource "random_string" "bucket_name" {
+      ~ id          = "IWYAsEr4jPCugema" -> (known after apply)
+      ~ length      = 16 -> 32 # forces replacement
+      ~ result      = "IWYAsEr4jPCugema" -> (known after apply)
+      ~ upper       = true -> false # forces replacement
+        # (8 unchanged attributes hidden)
+    }
+
+Plan: 2 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  ~ random_bucket_name = "IWYAsEr4jPCugema" -> (known after apply)
+```
+
+> #random_string.bucket_name must be replaced is a very important line as it is going to change the current insfrastructure state
+
+> execute `$ terraform apply ` and check in AWS console if it has created an S3 bucket with the name
+
+![terraform console output](Destroy_old-bucket_create_aws_bucket.png)
+
+![AWS console snippet of S3 bucket](new_bucket_aws.png)
+
+> execute `$ terraform destroy`` -> either you could manually enter "yes" or you alternatively execute `$ terraform apply --auto-approve` to delete the S3 bucket from AWS
+
+![S3 bucket destroyed from aws](Destroying_s3_bucket.png)
