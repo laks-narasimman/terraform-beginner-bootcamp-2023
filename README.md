@@ -341,6 +341,7 @@ Changes to Outputs:
 
 
 
+
 <img width="514" alt="Destroy_old-bucket_create_aws_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/62c8ff39-2cc7-4287-9273-0be98fb78abc">
 
 
@@ -350,6 +351,7 @@ Changes to Outputs:
 
 
 > execute `$ terraform destroy`` -> either you could manually enter "yes" or you alternatively execute `$ terraform apply --auto-approve` to delete the S3 bucket from AWS
+
 
 
 <img width="494" alt="Destroying_s3_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/a3bafd15-857e-40c9-a223-a2704361aef4">
