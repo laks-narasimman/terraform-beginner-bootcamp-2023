@@ -356,6 +356,7 @@ Changes to Outputs:
 
 <img width="494" alt="Destroying_s3_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/a3bafd15-857e-40c9-a223-a2704361aef4">
 
+
 ## Moving AWS terraform infrastructure from Gitpod to terraform workpace:[tag 0.0.7](0.0.7)
 1. Create Terraform cloud account
  by going [here](https://app.terraform.io/public/signup/account)
@@ -400,6 +401,7 @@ Provide the following code (replace your token in the file):
       "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
     }
   }
+
 }
 ```
 
