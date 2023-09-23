@@ -420,3 +420,46 @@ random_bucket_name	string
 "os5iyj76lmc86xge4spa445ywuxq1jt7"
 
 ```
+
+## Terraform global environment set up for gitpod: [tag 0.0.8](0.0.8)
+
+1. Instead of creating token for terraform every time manually, create a token for 30days and set that as a global variable in gitpod
+
+2. Create a token as mentioned in moving tsstate file from gitpod to terraform fo __30days__
+3. Create bash script as [toeken creation scripts](/bin/generate_tfrc_credentials)
+with below content from chatgpt
+
+```
+#!/usr/bin/env bash
+
+# Define target directory and file
+TARGET_DIR="/home/gitpod/.terraform.d"
+TARGET_FILE="${TARGET_DIR}/credentials.tfrc.json"
+
+# Check if TERRAFORM_CLOUD_TOKEN is set
+if [ -z "$TERRAFORM_CLOUD_TOKEN" ]; then
+    echo "Error: TERRAFORM_CLOUD_TOKEN environment variable is not set."
+    exit 1
+fi
+
+# Check if directory exists, if not, create it
+if [ ! -d "$TARGET_DIR" ]; then
+    mkdir -p "$TARGET_DIR"
+fi
+
+# Generate credentials.tfrc.json with the token
+cat > "$TARGET_FILE" << EOF
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "$TERRAFORM_CLOUD_TOKEN"
+    }
+  }
+}
+EOF
+
+echo "${TARGET_FILE} has been generated."
+```
+
+4. Add 744 permission to the [File](/bin/generate_tfrc_credentials) and validate whether it is generating token
+5. Add source ./bin/generate_tfrc_credentials in the [gitpodyml file](.gitpod.yml)
