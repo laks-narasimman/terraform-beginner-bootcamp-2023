@@ -463,3 +463,27 @@ echo "${TARGET_FILE} has been generated."
 
 4. Add 744 permission to the [File](/bin/generate_tfrc_credentials) and validate whether it is generating token
 5. Add source ./bin/generate_tfrc_credentials in the [gitpodyml file](.gitpod.yml)
+
+## Terraform alias set up for gitpod:[tag 0.0.9](0.0.9)
+1. Create a bash script below
+```
+#!/usr/bin/env bash
+
+# Check if the alias already exists in the .bash_profile
+grep -q 'alias tf="terraform"' ~/.bash_profile
+
+# $? is a special variable in bash that holds the exit status of the last command executed
+if [ $? -ne 0 ]; then
+    # If the alias does not exist, append it
+    echo 'alias tf="terraform"' >> ~/.bash_profile
+    echo "Alias added successfully."
+else
+    # Inform the user if the alias already exists
+    echo "Alias already exists in .bash_profile."
+fi
+
+# Optional: source the .bash_profile to make the alias available immediately
+source ~/.bash_profile
+```
+2. Chmod 744 on the and run it, it should create a alias record in .bash_profile as `alias tf=terraform`
+3. commit and re-launch gitpod to see if it works
