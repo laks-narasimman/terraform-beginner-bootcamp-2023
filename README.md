@@ -356,21 +356,67 @@ Changes to Outputs:
 
 <img width="494" alt="Destroying_s3_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/a3bafd15-857e-40c9-a223-a2704361aef4">
 
-## Issues with Terraform Cloud Login and Gitpod Workspace
-When attempting to run terraform login it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
 
-The workaround is manually generate a token in Terraform Cloud
+## Moving AWS terraform infrastructure from Gitpod to terraform workpace:[tag 0.0.7](0.0.7)
+1. Create Terraform cloud account
+ by going [here](https://app.terraform.io/public/signup/account)
+ 2. Create an Terraform Organization by ex: Exmapro, username_terraform
+ 3. Create project and create a workspace underneath the project
+ > what is terraform project and workspace->In Terraform, a "project" is a collection of infrastructure configuration, and a "workspace" is an isolated environment within a project for managing distinct configurations or environments.
+ 4. Back to Gitpod, we need to define the Terraform organization and workspace created in Terraform site inthe gitpod [main.tf](main.tf) file as below
+ ```
+ terraform {
+  cloud {
+    organization = "laks_terraform"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+}
+```
+
+
+5. >Execute `$ terraform init` this needs to let you copy the `.terraform.tfstate` file from gitpod to terramform workspace  
+
+
+6. ## Issues with Terraform Cloud Login and Gitpod Workspace
+When attempting to run `$ terraform init` it gave us an error that it could not login and asked to run `terraform login`, when we run login it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
+
+
+7. The workaround is manually generate a token in Terraform Cloud
 
 https://app.terraform.io/app/settings/tokens?source=terraform-login
-Then create open the file manually here:
+Then create and open the file manually here:
 
-touch /home/gitpod/.terraform.d/credentials.tfrc.json
-open /home/gitpod/.terraform.d/credentials.tfrc.json
+> touch /home/gitpod/.terraform.d/credentials.tfrc.json
+
+> open /home/gitpod/.terraform.d/credentials.tfrc.json
+
 Provide the following code (replace your token in the file):
+```
 {
   "credentials": {
     "app.terraform.io": {
       "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
     }
   }
+
 }
+```
+
+Repeat Step 5 to and say 'yes' to copy the infrstructure from gitpod to terraform
+
+8. Go to terrform project and you will notice 
+
+```
+NAME|PROVIDER|TYPE|MODULE|CREATED|bucket_name	
+hashicorp/rando...|random_strin...|root|Sep 23 2023|example	
+hashicorp/aws|aws_s3_bucke...|	root|	Sep 23 2023|
+```
+```
+NAME ↓	TYPE	VALUE
+random_bucket_name	string	
+"os5iyj76lmc86xge4spa445ywuxq1jt7"
+
+```
