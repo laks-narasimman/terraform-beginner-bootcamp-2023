@@ -1,24 +1,17 @@
 # Terraform Beginner Bootcamp 2023- week0
 
 # Table of cotents
-
-
 - [Semantic versioning](#semantic-versioning)
+- [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
+- [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
+- [AWS CLI installation](#aws-cli-installation)  
+- [Terraform console initialization](#terraform-console-initialization) 
+- [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)  
+- [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
+- [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
+- [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
 
-
-- [Semantic versioning](#semantic-versioning)
-
-
- - [Semantic versioning]()
- - [Terraform CLI installation process for Linux]()
- - [ How to add an enviroment variable(env vars) for the project]()
- - [AWS CLI installation]()
- - [ Terraform console initialization]()
- - [Terraform S3 Bucket creation and Terraform Destroy]()
- - [Moving AWS terraform infrastructure from Gitpod to terraform workpace]()
- - [Terraform global environment set up for gitpod]()
- -[Terraform alias set up for gitpod]()
- 
+  
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
@@ -107,7 +100,7 @@ total 4
 ```
 > quick tips of the flow is (`before init command`)
 
-## How to add an enviroment variable(env vars) for the project:
+## How to add an environment variable env vars for the project
 
 env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
 
