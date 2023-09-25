@@ -15,10 +15,11 @@
     + [Step 2](#step-2-1)
 - [Terraform console initialization](#terraform-console-initialization)
   * [Terraform registry](#terraform-registry)
+  * [Terraform main file](#terraform-main-file)
   * [Terraform init](#terraform-init)
   * [Terraform Plan](#terraform-plan)
   * [Terraform apply](#terraform-apply)
-    + [Terraform file state](#terraform-file-state)
+  * [Terraform file state](#terraform-file-state)
 - [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
   * [Terraform AWS provider set up](#terraform-aws-provider-set-up)
     + [Terraform S3 config](#terraform-s3-config)
@@ -27,6 +28,7 @@
   * [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
 - [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
 - [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
+
   
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
@@ -218,7 +220,7 @@ Contains two major thing:
 
 Please find the [Terraform registry here](https://registry.terraform.io/)
 
-### Terraform [main file](main.tf)
+### Terraform main file
 
 > __main.tf__ is the impotant file for Terraform to create modules required for the terraform projects
 
@@ -327,7 +329,7 @@ provider "aws" {
 }
 ```
 
-### Important  > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
+**Important**  > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
 
 #### Terraform S3 config
 add the sample S3 bucket code snippet from [aws s3 bucket terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) and you need to make sure that the bucket name generated out of the random string is matching with the criteria of S3 Bucket naming convention
