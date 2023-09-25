@@ -1,16 +1,34 @@
 # Terraform Beginner Bootcamp 2023- week0
-
-# Table of cotents
 - [Semantic versioning](#semantic-versioning)
 - [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
+  * [Step 1](#step-1)
+  * [Step 2](#step-2)
+  * [Step 3](#step-3)
+  * [Step 4](#step-4)
+  * [Step 5](#step-5)
+  * [Step 6](#step-6)
+  * [Step 7](#step-7)
 - [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
-- [AWS CLI installation](#aws-cli-installation)  
-- [Terraform console initialization](#terraform-console-initialization) 
-- [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)  
+  * [How to set env vars in gitpod](#how-to-set-env-vars-in-gitpod)
+- [AWS CLI installation](#aws-cli-installation)
+    + [Step 1](#step-1-1)
+    + [Step 2](#step-2-1)
+- [Terraform console initialization](#terraform-console-initialization)
+  * [Terraform registry](#terraform-registry)
+  * [Terraform [main file](main.tf)](#terraform--main-file--maintf)
+  * [Terraform init](#terraform-init)
+  * [Terraform Plan](#terraform-plan)
+  * [Terraform apply](#terraform-apply)
+    + [Terraform file state](#terraform-file-state)
+- [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
+  * [Terraform AWS provider set up](#terraform-aws-provider-set-up)
+  * [Important  > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random](#important----as-random-provider-already-set-up-in--maintf----we-can-t-have--two--terraform-and-required-providers--in-the-same-file-hence-we-need-to-amend-aws-under-the-same-block-post-random)
+    + [Terraform S3 config](#terraform-s3-config)
+    + [Terraform project initiation](#terraform-project-initiation)
 - [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
+  * [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
 - [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
 - [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
-
   
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
@@ -23,7 +41,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-## Terraform CLI installation process for Linux:
+## Terraform CLI installation process for Linux
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -42,31 +60,31 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=jammy
 ```
 - PRETTY_NAME="Ubuntu 22.04.3 LTS" tells about the flavour of Linux
-### Step 1:
+### Step 1
 We ran the command for terraform cli installation from [.gitpod.yml](.gitpod.yml)
 
 however we were prompted by the shell to enter **Yes Or No** to proceed further
 
 This can work but needs to be re-installed manually every time we create a new gitpod instance. 
 So there needs to be an automated solution to have this ready wthout manual work which is the reason why we have #4 ticket created in GitHub
-### Step 2:
+### Step 2
 We went to Terraform site for installation steps for **Linux->Ubuntu** 
 [terraform site](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-### Step 3:
+### Step 3
 Created a bash file called [/bin/install_terraform_cli](/bin/install_terraform_cli) in GitPod under `/bin` and this is expected to automate the installation of Terraform cli for us  
 
-### Step 4:
+### Step 4
 Chatgpt suggested that for a bash file to run, we need to have __#!/usr/env/bash__ in the start of the file 
 
 `#!`is called Shebang or Shanbang(`#`-means Sha(Sharp)) and (`!`- means exclamatory mark)
 
-### Step 5: 
+### Step 5
 From the Terraform website in __Step 2__ 
 
 Copy all the commands until ```$  sudo apt-get install terraform``` to the bash file
 
-### Step 6:
+### Step 6
 Execute 
 
 ```$ source ./bin/install_terraform_cli``` 
@@ -89,7 +107,7 @@ total 4
 
 > Excute permission i.e __x__ is what can give perission to run the script using `./` as prefix. To run any shell script we have to use that as prefix.
 
-#### Step 7:
+#### Step 7
  This step is very important, in order for us to automate the software installation and environment to be readily available for us to use Gitpod everytime we re-open we have to define the __tasks__ in ``.gitpod.yml`` file
 
  Please see [gitpod documentation](
@@ -118,14 +136,14 @@ $ gp env PROJECT_ROOT='/usr/bin' -> sets env vars for global i.e for all the she
 - Make sure that the global env vars does not break any other software for your system 
 - Make sure to use the env vars at the right place ex: to install all the packages you could **cd to workspace** and to work on the project **cd $PROJECT_ROOT** at the end of the .gitpo.yml file
 
-## AWS CLI installation:
+## AWS CLI installation
 AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cli)
 
 [Getting started with AWS CLI installs](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 [set up aws cli env ](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
-#### Step 1:
+#### Step 1
 Add the [aws bash script](/bin/install_aws_cli) to the [gitpod.yml](.gitpod.yml) under the before statement as like the terraform
 
 Make sure that the new aws cli bash file is executable 
@@ -152,7 +170,7 @@ This will make sure that the existing aws files are removed and fresh aws is ins
 
 Generally we need to remember the command for each services but this env vars can automatically prompt the options available for each services of the aws on the shell
 
-#### Step 2:
+#### Step 2
 - Open AWS console and create an IAM user specifically for the terraformbootcamp
 - Add appropriate user permission for the IAM user
 - Get the user access key by going into the below
@@ -192,9 +210,9 @@ When you are successful with the IAM credential addtion to gitpod as a global va
 This shall ensure that the aws and terrform cli are ready to be used for the project
 
 
-## Terraform console initialization: 
+## Terraform console initialization
 
-### Terraform registry:
+### Terraform registry
 
 Contains two major thing:
 - **Providers** - API Plugin for all the cloud sevice providers like **AWS, AZURE, Google, Oracle etc.,** 
@@ -202,7 +220,7 @@ Contains two major thing:
 
 Please find the [Terraform registry here](https://registry.terraform.io/)
 
-### Terraform [main file](main.tf):
+### Terraform [main file](main.tf)
 
 > __main.tf__ is the impotant file for Terraform to create modules required for the terraform projects
 
@@ -240,7 +258,7 @@ output "random_bucket_name" {
     value = random_string.bucket_name.result
   }
 ```
-### Terraform init:
+### Terraform init
 
 once we have the [main.tf](main.tf) ready , go to the shell and initiate  terraform by 
 > execute `$ terraform init` -> This downloads the binaries for the terraform provider that we use in the project 
@@ -266,11 +284,11 @@ This file stores the registry of the provider and the version of the provider as
 ```
 > Commit to the version control system i.e github?: **No**
 
-### Terraform Plan:
+### Terraform Plan
 
 > execute `$ terraform plan` this will generate a changeset, about the current state of the infrastructure and what will be changed 
 
-### Terraform apply:
+### Terraform apply
 
 > execute `$ terraform apply` this prompt you to say **yes** (note that this is casesensitive so **Yes** will not work) for any other option apart from **yes** plan will not be applied. Also, this executes plan and pass the changeset to be executed by terraform
   
@@ -279,7 +297,7 @@ This file stores the registry of the provider and the version of the provider as
 > execute `$ terraform output or $ terraform output random_bucket_name` to check if the bucket is created successfully
 
 
-#### Terraform file state:
+#### Terraform file state
 `terraform.tfstate` is the file that contains current state of the infrastructure 
 
 > This file is very critical and contains sensitive data, can't afford to lose this file or change aything maually
@@ -289,9 +307,9 @@ This file stores the registry of the provider and the version of the provider as
 `terraform.tfstate.backup` is the file that contains the previous state of the infrastructure
 
 
-## Terraform S3 Bucket creation and Terraform Destroy: 
+## Terraform S3 Bucket creation and Terraform Destroy
 
-### Terraform AWS provider set up:
+### Terraform AWS provider set up
 
 Similar to the set up of Random provider , need to set up aws provider
 
@@ -311,12 +329,12 @@ provider "aws" {
 }
 ```
 
-### Important : > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
+### Important  > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
 
-#### Terraform S3 config:
+#### Terraform S3 config
 add the sample S3 bucket code snippet from [aws s3 bucket terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) and you need to make sure that the bucket name generated out of the random string is matching with the criteria of S3 Bucket naming convention
 
-#### Terraform project initiation:
+#### Terraform project initiation
 
 > execute `$ terraform init` to start the terraform with both __random__ and __aws__ providers
 
@@ -370,7 +388,7 @@ Changes to Outputs:
 <img width="494" alt="Destroying_s3_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/a3bafd15-857e-40c9-a223-a2704361aef4">
 
 
-## Moving AWS terraform infrastructure from Gitpod to terraform workpace:
+## Moving AWS terraform infrastructure from Gitpod to terraform workpace
 1. Create Terraform cloud account
  by going [here](https://app.terraform.io/public/signup/account)
  2. Create an Terraform Organization by ex: Exmapro, username_terraform
@@ -434,7 +452,7 @@ random_bucket_name	string
 
 ```
 
-## Terraform global environment set up for gitpod: 
+## Terraform global environment set up for gitpod
 1. Instead of creating token for terraform every time manually, create a token for 30days and set that as a global variable in gitpod
 
 2. Create a token as mentioned in moving tsstate file from gitpod to terraform fo __30days__
@@ -476,7 +494,7 @@ echo "${TARGET_FILE} has been generated."
 4. Add 744 permission to the [File](/bin/generate_tfrc_credentials) and validate whether it is generating token
 5. Add source ./bin/generate_tfrc_credentials in the [gitpodyml file](.gitpod.yml)
 
-## Terraform alias set up for gitpod:
+## Terraform alias set up for gitpod
 1. Create a bash script below
 ```
 #!/usr/bin/env bash
