@@ -5,6 +5,10 @@
 
 - [Semantic versioning](#semantic-versioning)
 
+
+- [Semantic versioning](#semantic-versioning)
+
+
  - [Semantic versioning]()
  - [Terraform CLI installation process for Linux]()
  - [ How to add an enviroment variable(env vars) for the project]()
