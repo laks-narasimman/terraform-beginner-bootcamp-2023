@@ -2,15 +2,18 @@
 
 # Table of cotents
 
+
+- [Semantic versioning](#semantic-versioning)
+
  - [Semantic versioning]()
- - [Terraform CLI installation process for Linux](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-cli-installation-process-for-linux)
- - [ How to add an enviroment variable(env vars) for the project](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#how-to-add-an-enviroment-variableenv-vars-for-the-project)
- - [AWS CLI installation](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#aws-cli-installation)
- - [ Terraform console initialization](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-console-initialization)
- - [Terraform S3 Bucket creation and Terraform Destroy](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-s3-bucket-creation-and-terraform-destroy)
- - [Moving AWS terraform infrastructure from Gitpod to terraform workpace](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
- - [Terraform global environment set up for gitpod](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-global-environment-set-up-for-gitpod)
- -[Terraform alias set up for gitpod](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-alias-set-up-for-gitpod)
+ - [Terraform CLI installation process for Linux]()
+ - [ How to add an enviroment variable(env vars) for the project]()
+ - [AWS CLI installation]()
+ - [ Terraform console initialization]()
+ - [Terraform S3 Bucket creation and Terraform Destroy]()
+ - [Moving AWS terraform infrastructure from Gitpod to terraform workpace]()
+ - [Terraform global environment set up for gitpod]()
+ -[Terraform alias set up for gitpod]()
  
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
