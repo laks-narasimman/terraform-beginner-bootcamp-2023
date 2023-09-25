@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic versioning :mage: [tag 0.0.1](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.1)
+## Semantic versioning
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
 
@@ -11,7 +11,7 @@ Genera Format is:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Terraform CLI installation process for Linux: [tag 0.0.2](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.2)
+## Terraform CLI installation process for Linux:
 Before we proceed with installing any software , it is worth checking the Linux flavour and version to understand what can work and what can't for your environment
 
 ```
@@ -75,7 +75,8 @@ total 4
 ```
 > __x__ in the end of the first block means that the file can be executed without __source__ command in prefix. To know more about file permission in Unix/Linux [Unix File permission](https://en.wikipedia.org/wiki/File-system_permissions)
 
-> Excute permission i.e __x__ is what can give perission to run the script using `./` as prefix. To run any shell script we have to use that as prefix. 
+> Excute permission i.e __x__ is what can give perission to run the script using `./` as prefix. To run any shell script we have to use that as prefix.
+
 #### Step 7:
  This step is very important, in order for us to automate the software installation and environment to be readily available for us to use Gitpod everytime we re-open we have to define the __tasks__ in ``.gitpod.yml`` file
 
@@ -87,7 +88,7 @@ total 4
 ```
 > quick tips of the flow is (`before init command`)
 
-### How to add an enviroment variable(env vars) for the project: [tag 0.0.3](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.3)
+## How to add an enviroment variable(env vars) for the project:
 
 env vars in Linux are like an alias to shortern the parths that generally used to work on the projects. 
 
@@ -105,7 +106,7 @@ $ gp env PROJECT_ROOT='/usr/bin' -> sets env vars for global i.e for all the she
 - Make sure that the global env vars does not break any other software for your system 
 - Make sure to use the env vars at the right place ex: to install all the packages you could **cd to workspace** and to work on the project **cd $PROJECT_ROOT** at the end of the .gitpo.yml file
 
-### AWS CLI installation: [tag 0.0.4](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.4)
+## AWS CLI installation:
 AWS CLI installed for the project via bash script [AWS Bash](/bin/install_aws_cli)
 
 [Getting started with AWS CLI installs](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -179,7 +180,7 @@ When you are successful with the IAM credential addtion to gitpod as a global va
 This shall ensure that the aws and terrform cli are ready to be used for the project
 
 
-## Terraform console initialization: [tag 0.0.5](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.5)
+## Terraform console initialization: 
 
 ### Terraform registry:
 
@@ -276,9 +277,9 @@ This file stores the registry of the provider and the version of the provider as
 `terraform.tfstate.backup` is the file that contains the previous state of the infrastructure
 
 
-### Terraform S3 Bucket creation and Terraform Destroy: [tag 0.0.6](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/0.0.6)
+## Terraform S3 Bucket creation and Terraform Destroy: 
 
-#### Terraform AWS provider set up:
+### Terraform AWS provider set up:
 
 Similar to the set up of Random provider , need to set up aws provider
 
@@ -298,7 +299,7 @@ provider "aws" {
 }
 ```
 
-#### Important : > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
+### Important : > As Random provider already set up in `main.tf` , we can't have  two `terraform and required_providers` in the same file. Hence we need to amend aws under the same block post random
 
 #### Terraform S3 config:
 add the sample S3 bucket code snippet from [aws s3 bucket terraform documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) and you need to make sure that the bucket name generated out of the random string is matching with the criteria of S3 Bucket naming convention
@@ -357,7 +358,7 @@ Changes to Outputs:
 <img width="494" alt="Destroying_s3_bucket1" src="https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/a3bafd15-857e-40c9-a223-a2704361aef4">
 
 
-## Moving AWS terraform infrastructure from Gitpod to terraform workpace:[tag 0.0.7](0.0.7)
+## Moving AWS terraform infrastructure from Gitpod to terraform workpace:
 1. Create Terraform cloud account
  by going [here](https://app.terraform.io/public/signup/account)
  2. Create an Terraform Organization by ex: Exmapro, username_terraform
@@ -380,7 +381,7 @@ Changes to Outputs:
 5. >Execute `$ terraform init` this needs to let you copy the `.terraform.tfstate` file from gitpod to terramform workspace  
 
 
-6. ## Issues with Terraform Cloud Login and Gitpod Workspace
+6. ### Issues with Terraform Cloud Login and Gitpod Workspace
 When attempting to run `$ terraform init` it gave us an error that it could not login and asked to run `terraform login`, when we run login it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
 
 
@@ -421,8 +422,7 @@ random_bucket_name	string
 
 ```
 
-## Terraform global environment set up for gitpod: [tag 0.0.8](0.0.8)
-
+## Terraform global environment set up for gitpod: 
 1. Instead of creating token for terraform every time manually, create a token for 30days and set that as a global variable in gitpod
 
 2. Create a token as mentioned in moving tsstate file from gitpod to terraform fo __30days__
@@ -464,7 +464,7 @@ echo "${TARGET_FILE} has been generated."
 4. Add 744 permission to the [File](/bin/generate_tfrc_credentials) and validate whether it is generating token
 5. Add source ./bin/generate_tfrc_credentials in the [gitpodyml file](.gitpod.yml)
 
-## Terraform alias set up for gitpod:[tag 0.0.9](0.0.9)
+## Terraform alias set up for gitpod:
 1. Create a bash script below
 ```
 #!/usr/bin/env bash
