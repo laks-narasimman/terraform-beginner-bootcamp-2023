@@ -2,7 +2,7 @@
 
 # Table of cotents
 
- - [Semantic versioning](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#semantic-versioning)
+ - [Semantic versioning]()
  - [Terraform CLI installation process for Linux](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#terraform-cli-installation-process-for-linux)
  - [ How to add an enviroment variable(env vars) for the project](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#how-to-add-an-enviroment-variableenv-vars-for-the-project)
  - [AWS CLI installation](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/tree/27-create-toc-readme#aws-cli-installation)
