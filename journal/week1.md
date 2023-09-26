@@ -66,4 +66,4 @@ Ex: `instance_type = "t2.large"`
 ### order of terraform variables
 
 
-![Variable order precedence](<Terraform variable order precedence.png>)
+![Terraform variable order precedence](https://github.com/laks-narasimman/terraform-beginner-bootcamp-2023/assets/124524141/1c5fe826-2f99-4b99-9e0e-7f2e5a6c0c10)
