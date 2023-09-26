@@ -7,6 +7,7 @@ terraform {
   #    name = "terra-house-1"
   #  }
   #}
+
  # cloud {
  #   organization = "laks_terraform"
  #   workspaces {
