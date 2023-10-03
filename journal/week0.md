@@ -1,35 +1,35 @@
-# Terraform Beginner Bootcamp 2023- week0
-- [Semantic versioning](#semantic-versioning)
-- [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
-  * [Step 1](#step-1)
-  * [Step 2](#step-2)
-  * [Step 3](#step-3)
-  * [Step 4](#step-4)
-  * [Step 5](#step-5)
-  * [Step 6](#step-6)
-  * [Step 7](#step-7)
-- [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
-  * [How to set env vars in gitpod](#how-to-set-env-vars-in-gitpod)
-- [AWS CLI installation](#aws-cli-installation)
-    + [Step 1](#step-1-1)
-    + [Step 2](#step-2-1)
-- [Terraform console initialization](#terraform-console-initialization)
-  * [Terraform registry](#terraform-registry)
-  * [Terraform main file](#terraform-main-file)
-  * [Terraform init](#terraform-init)
-  * [Terraform Plan](#terraform-plan)
-  * [Terraform apply](#terraform-apply)
-  * [Terraform file state](#terraform-file-state)
-- [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
-  * [Terraform AWS provider set up](#terraform-aws-provider-set-up)
-    + [Terraform S3 config](#terraform-s3-config)
-    + [Terraform project initiation](#terraform-project-initiation)
-- [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
-  * [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
-- [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
-- [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
+- [Terraform Beginner Bootcamp 2023- week0](#terraform-beginner-bootcamp-2023--week0)
+  * [Semantic versioning](#semantic-versioning)
+  * [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
+    + [Step 1](#step-1)
+    + [Step 2](#step-2)
+    + [Step 3](#step-3)
+    + [Step 4](#step-4)
+    + [Step 5](#step-5)
+    + [Step 6](#step-6)
+    + [Step 7](#step-7)
+  * [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
+    + [How to set env vars in gitpod](#how-to-set-env-vars-in-gitpod)
+  * [AWS CLI installation](#aws-cli-installation)
+      - [Step 1](#step-1-1)
+      - [Step 2](#step-2-1)
+  * [Terraform console initialization](#terraform-console-initialization)
+    + [Terraform registry](#terraform-registry)
+    + [Terraform main file](#terraform-main-file)
+    + [Terraform init](#terraform-init)
+    + [Terraform Plan](#terraform-plan)
+    + [Terraform apply](#terraform-apply)
+      - [Terraform file state](#terraform-file-state)
+  * [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
+    + [Terraform AWS provider set up](#terraform-aws-provider-set-up)
+      - [Terraform S3 config](#terraform-s3-config)
+      - [Terraform project initiation](#terraform-project-initiation)
+  * [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
+    + [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+  * [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
+  * [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
+  * [week-0 Quiz notes](#week-0-quiz-notes)
 
-  
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
@@ -517,4 +517,102 @@ source ~/.bash_profile
 ```
 2. Chmod 744 on the and run it, it should create a alias record in .bash_profile as `alias tf=terraform`
 3. commit and re-launch gitpod to see if it works
+
+## week-0 Quiz notes
+1. What is the primary purpose of "week zero" in the boot camp as discussed in the transcript?
+> To set up only the Discord accounts for communication.
+2. According to the cloud engineering bootcamp discussion, what are some of the key expectations and practices emphasized by the hosts?
+> Practicing self-compassion, remembering that perfection is not necessary and taking breaks for personal well-being.
+3. Why are code blocks an essential tool for Cloud Engineers when creating documentation?
+> They facilitate easy sharing and replication of code by allowing others to copy and paste code snippets easily.
+4. What is the primary purpose of using code blocks?
+> To highlight syntax and errors in console.
+5. Which of the following statements about using Markdown is true?
+> GitHub flavored markdown allows for relative links to reference other files.
+6. Which of the following statements about GitHub Flavored Markdown (GFM) is true?
+> In GFM, you can create tables with specific alignment and cell formatting options.
+7. What is the most crucial aspect to consider when copying over the template repository for the Terraform bootcamp?
+> Ensuring the repository name is exactly "terraform-beginner-bootcamp-2023" in your account.
+8. Which of the following steps should you take immediately after making a change in your Gitpod environment?
+> Commit your changes with a relevant message.
+9. What is the primary reason for signing up for a Terraform Cloud account during the bootcamp?
+> To store your remote State backends.
+10. What is the primary purpose of the "jumppad" tool in the Terraform beginner boot camp?
+> To spin up a testing and demo environment.
+11. Which command is used to initiate the installation of Jumppad using Homebrew on MacOS?
+> brew install jumppad-labs/homebrew-repo/jumppad
+12. What is one of the main dependencies needed before installing Jumppad on Mac OS?
+> Docker
+13. What is a feature branch in git?
+> A copy of the main codebase where a software developer can work on a new feature until it is complete.
+14. What is the command to create a new branch?
+> git checkout -b 'issue_number_feature'
+15. In the git workflow, when do you use git tag?
+> After you merge a PR into the main branch.
+16. What is the general format of Semantic Versioning?
+> MAJOR.MINOR.PATCH
+17. What command is used to make a bash script executable at the user level in Linux?
+> chmod u+x filename
+18. Where are the bash scripts typically stored in standard Linux practice?
+> /bin directory
+19. What was refactored into a bash script?
+> Terraform CLI
+20. What does the shebang (#!) in a bash script indicate?
+> The interpreter that will process the script.
+21. Which command is used to unset an environment variable?
+> UNSET
+22. In the context of bash scripting, how can an environment variable named PROJECT_ROOT be referenced?
+> $PROJECT_ROOT
+23. Each terminal environment has its own set of environment variables.
+> True
+24. What command is used to list all environment variables?
+   > ENV
+25. In Gitpod, where can non-sensitive environment variables be set?
+   > In the .gitpod.yml file
+26. Which AWS command checks if credentials are correctly configured?
+   > aws sts get-caller-identity
+27. Which flag is used to forcefully remove a file in the script?
+   > -f
+28. Which file is responsible for launching the bash terminals in GitPod?
+   > Gitpod.yml
+29. Which AWS service is used for identity access management?
+   > IAM
+30. What type of authentication should you ideally have for your root account?
+   > Multifactor Authentication
+31. What command is executed to apply the changes described in the Terraform plan?
+   > terraform apply
+32. What is the primary use of the Terraform registry website?
+   > It's where you get providers and modules for Terraform.
+33. What is the difference between Terraform providers and modules?
+   > Providers are the direct interfaces to APIs; modules are templates.
+34. Which file should NOT be committed to a version control system when working with Terraform State?
+   > .terraform.tfstate
+35. What command is used to initialize a new Terraform project?
+   > terraform init
+36. Which tool is commonly used by AWS for creating infrastructure as code?
+   > AWS CloudFormation
+37. How can you prevent environment variables from being committed to your repository when configuring AWS credentials for Terraform?
+   > Store the environment variables in a separate file and add it to the .gitignore file
+38. Which Terraform command should you use to destroy AWS resources managed by your Terraform configuration?
+   > terraform destroy
+39. What is the purpose of the terraform migrate state command mentioned in the video?
+   > To copy the current workspace state to terraform Cloud.
+40. In terraform Cloud, what can contain multiple workspaces?
+   > Projects
+41. Which file format is used to configure Terraform Cloud workspaces when migrating existing state?
+   > JSON
+42. What does Andrew suggest setting the Terraform cloud token duration to for the bootcamp?
+   > 30 days
+43. What is the purpose of the Bash script "generatetfrccredentials"?
+   > To create a JSON file with Terraform Cloud credentials.
+44. What is the primary purpose of setting an alias for 'terraform' to 'TF'?
+   > To provide a shorthand and speed up the typing of the command.
+ 
+
+
+
+ 
+
+
+
 
