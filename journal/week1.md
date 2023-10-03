@@ -1,5 +1,41 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
 
+- [Root Module Structure](#root-module-structure)
+- [Terraform and Input Variables](#terraform-and-input-variables)
+  * [Terraform Cloud Variables](#terraform-cloud-variables)
+  * [Loading Terraform Input Variables](#loading-terraform-input-variables)
+  * [var flag](#var-flag)
+  * [var-file flag](#var-file-flag)
+  * [terraform.tfvars](#terraformtfvars)
+  * [auto.tfvars](#autotfvars)
+  * [order of terraform variables](#order-of-terraform-variables)
+- [Dealing With Configuration Drift](#dealing-with-configuration-drift)
+  * [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
+  * [Fix Manual Configuration](#fix-manual-configuration)
+  * [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+- [Terraform Modules and structure](#terraform-modules-and-structure)
+  * [Passing input variables](#passing-input-variables)
+  * [Modules sources](#modules-sources)
+- [Terraform-AWS S3 bucket web hosting](#terraform-aws-s3-bucket-web-hosting)
+  * [Considerations when using ChatGPT to write Terraform](#considerations-when-using-chatgpt-to-write-terraform)
+  * [Working with Files in Terraform](#working-with-files-in-terraform)
+    + [Fileexists function](#fileexists-function)
+    + [Filemd5](#filemd5)
+  * [Path variable](#path-variable)
+- [Terraform Locals](#terraform-locals)
+  * [Terraform Data Sources](#terraform-data-sources)
+  * [Working with JSON](#working-with-json)
+- [Terraform to pick content versio change of html files for CDN invalidation](#terraform-to-pick-content-versio-change-of-html-files-for-cdn-invalidation)
+  * [Changing the Lifecycle of Resources](#changing-the-lifecycle-of-resources)
+  * [Terraform data](#terraform-data)
+- [Adding CloudFront cache invalidation](#adding-cloudfront-cache-invalidation)
+  * [Provisioners](#provisioners)
+  * [local exec](#local-exec)
+  * [Remote-exec](#remote-exec)
+- [For Each Expressions](#for-each-expressions)
+- [Week-1 Quiz notes](#week-1-quiz-notes)
+  
+
 ## Root Module Structure
 
 Our root module structure is as follows:
@@ -273,3 +309,83 @@ This is mostly useful when you are creating multiples of a cloud resource and yo
 
 
 [Foreachexpression](https://developer.hashicorp.com/terraform/language/expressions/for)
+
+## Week-1 Quiz notes
+1. What is the primary objective for this week regarding Terraform?
+> Understand all the intricacies of Terraform
+2. What is the only required element for the standard module structure?
+> The root module
+3. What does the "Squash and Merge" option do on a pull request?
+> The pull request's commits are squashed into a single commit.
+4. What is the command to add tags to your repository?
+> git push --tags
+5. What kind of validation does the user have for the "user_uid" variable?
+> It must match a specific format
+6. Which HashiCorp project is believed to store the sensitive Terraform Cloud variables?
+> Vault
+7. What is the purpose of the outputs.tf file in Terraform?
+> Stores the output variables.
+8. What is the purpose of using multiple TF files in Terraform?
+> To organize and modularize code by splitting them into separate tasks or functionalities.
+9. Which file is expected to contain information about required providers and their configurations?
+> providers.tf
+10. What command in Terraform helps in fixing configuration drift?
+> terraform plan
+11. What does "terraform import" command do according to the video?
+> It helps in bringing missing resources back into the terraform state
+12. What is the main issue regarding the Terraform state file in the video?
+> The Terraform state file has been deleted and needs to be recovered.
+13. What does the VAR flag in Terraform do?
+> It sets an input variable or overrides a variable in tfvars
+14. What was one of the suggestions for organizing the module structure?
+> Separating storage and content delivery into different files
+15. What is the name of the module being created in the video?
+> Terra House Module
+16. Which tool is described as an interactive way to troubleshoot and debug in Terraform?
+> Terraform Console
+17. How can you ensure a given path is valid in Terraform?
+> By using the "file.exists" function
+18. Which cloud service allows you to use cloud storage as static website hosting?
+> AWS S3
+19. What is the purpose of setting up a CDN?
+> To provide content delivery through a distributed network.
+20. Which AWS service can be used to serve static websites with a CDN in front of it?
+> AWS CloudFront
+21. What is the purpose of using the data keyword in Terraform?
+> To fetch data from cloud resources.
+22. What is HCL in the context of Terraform?
+> The underlying syntax used by Terraform
+23. What is the goal of this lesson?
+> To create a content version of TerraTowns
+24. What is the role of terraform data in the described process?
+> It acts as an imaginary object for tracking variable states.
+25. Which terraform meta argument allows control over when a resource gets created or updated?
+> Lifecycle.
+26. What does the "file provisioner" in Terraform do?
+> Copies files from a machine running Terraform to the newly created resource
+27. Why are provisioners like local exec and remote exec discouraged by HashiCorp?
+> Configuration management tools such as Ansible are a better fit.
+28. What does the local exec provisioner do in Terraform?
+> It executes a command on the machine running the Terraform commands.
+29. Which wildcard symbol can be used to match against all files?
+> `*`
+30. What is the purpose of using for each in Terraform?
+> To iterate or enumerate over complex data structures.
+31. Which folder contains the files to be uploaded?
+> assets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
