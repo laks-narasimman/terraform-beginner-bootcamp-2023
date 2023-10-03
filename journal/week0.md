@@ -1,35 +1,35 @@
-# Terraform Beginner Bootcamp 2023- week0
-- [Semantic versioning](#semantic-versioning)
-- [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
-  * [Step 1](#step-1)
-  * [Step 2](#step-2)
-  * [Step 3](#step-3)
-  * [Step 4](#step-4)
-  * [Step 5](#step-5)
-  * [Step 6](#step-6)
-  * [Step 7](#step-7)
-- [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
-  * [How to set env vars in gitpod](#how-to-set-env-vars-in-gitpod)
-- [AWS CLI installation](#aws-cli-installation)
-    + [Step 1](#step-1-1)
-    + [Step 2](#step-2-1)
-- [Terraform console initialization](#terraform-console-initialization)
-  * [Terraform registry](#terraform-registry)
-  * [Terraform main file](#terraform-main-file)
-  * [Terraform init](#terraform-init)
-  * [Terraform Plan](#terraform-plan)
-  * [Terraform apply](#terraform-apply)
-  * [Terraform file state](#terraform-file-state)
-- [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
-  * [Terraform AWS provider set up](#terraform-aws-provider-set-up)
-    + [Terraform S3 config](#terraform-s3-config)
-    + [Terraform project initiation](#terraform-project-initiation)
-- [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
-  * [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
-- [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
-- [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
+- [Terraform Beginner Bootcamp 2023- week0](#terraform-beginner-bootcamp-2023--week0)
+  * [Semantic versioning](#semantic-versioning)
+  * [Terraform CLI installation process for Linux](#terraform-cli-installation-process-for-linux)
+    + [Step 1](#step-1)
+    + [Step 2](#step-2)
+    + [Step 3](#step-3)
+    + [Step 4](#step-4)
+    + [Step 5](#step-5)
+    + [Step 6](#step-6)
+    + [Step 7](#step-7)
+  * [How to add an environment variable env vars for the project](#how-to-add-an-environment-variable-env-vars-for-the-project)
+    + [How to set env vars in gitpod](#how-to-set-env-vars-in-gitpod)
+  * [AWS CLI installation](#aws-cli-installation)
+      - [Step 1](#step-1-1)
+      - [Step 2](#step-2-1)
+  * [Terraform console initialization](#terraform-console-initialization)
+    + [Terraform registry](#terraform-registry)
+    + [Terraform main file](#terraform-main-file)
+    + [Terraform init](#terraform-init)
+    + [Terraform Plan](#terraform-plan)
+    + [Terraform apply](#terraform-apply)
+      - [Terraform file state](#terraform-file-state)
+  * [Terraform S3 Bucket creation and Terraform Destroy](#terraform-s3-bucket-creation-and-terraform-destroy)
+    + [Terraform AWS provider set up](#terraform-aws-provider-set-up)
+      - [Terraform S3 config](#terraform-s3-config)
+      - [Terraform project initiation](#terraform-project-initiation)
+  * [Moving AWS terraform infrastructure from Gitpod to terraform workpace](#moving-aws-terraform-infrastructure-from-gitpod-to-terraform-workpace)
+    + [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+  * [Terraform global environment set up for gitpod](#terraform-global-environment-set-up-for-gitpod)
+  * [Terraform alias set up for gitpod](#terraform-alias-set-up-for-gitpod)
+  * [week-0 Quiz notes](#week-0-quiz-notes)
 
-  
 ## Semantic versioning
 This project is going to have semantic versioning for it's project:
 [semver.org](https://semver.org/)
@@ -518,7 +518,7 @@ source ~/.bash_profile
 2. Chmod 744 on the and run it, it should create a alias record in .bash_profile as `alias tf=terraform`
 3. commit and re-launch gitpod to see if it works
 
-## week-0 Quiz note
+## week-0 Quiz notes
 1. What is the primary purpose of "week zero" in the boot camp as discussed in the transcript?
 > To set up only the Discord accounts for communication.
 2. According to the cloud engineering bootcamp discussion, what are some of the key expectations and practices emphasized by the hosts?
