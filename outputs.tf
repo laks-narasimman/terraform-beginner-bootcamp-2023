@@ -12,5 +12,5 @@ locals {
   root_path= path.root
 }
 output "root_path" {
-  value=locals.root_path
+  value=local.root_path
 }
