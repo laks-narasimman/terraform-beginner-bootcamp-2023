@@ -5,6 +5,12 @@ tasks:
       source ./bin/install_terraform_cli
       source ./bin/generate_tfrc_credentials
       cp $PROJECT_ROOT/terraform.tfvars.example $PROJECT_ROOT/terraform.tfvars
+      tasks:
+  - name: sinatra
+    before: | 
+      cd terratowns_mock_server
+      bundle install
+      bundle exec ruby server.rb 
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
