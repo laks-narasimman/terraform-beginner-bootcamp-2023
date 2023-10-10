@@ -1,6 +1,6 @@
 tasks:
   - name: terraform
-  env:
+    env:
       TF_LOG: DEBUG
     before: |
       source ./bin/set_tf_alias
