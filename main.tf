@@ -13,12 +13,12 @@ terraform {
   #    name = "terra-house-1"
   #  }
   #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  cloud {
+    organization = "laks_terraform"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 
 }
 
@@ -28,21 +28,36 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "home_SouthIndianmusic_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.SouthIndianmusic.public_path
+  content_version = var.SouthIndianmusic.content_version
 }
 
 resource "terratowns_home" "home" {
-  name = "Bahubali An Indian movie!"
+  name = "SouthIndian music and it's history!"
   description = <<DESCRIPTION
-"Baahubali: The Beginning" is an epic Indian film that explores the rivalry between two royal brothers, Baahubali and Bhallaladeva, in the kingdom of Mahishmati. The movie culminates in a grand war between the brothers, filled with stunning visuals and breathtaking action sequences. This battle not only showcases their physical prowess but also tests their loyalty and morality. The emotional complexity of their conflict adds depth to the spectacle. "Baahubali: The Beginning" is a cinematic masterpiece, blending mythology, history, and fantasy, and it led to a highly successful sequel, solidifying its status as an iconic Indian film franchise.
+South Indian music, often referred to as "Carnatic music," is a classical music tradition that has its roots in the southern part of India, particularly in the states of Tamil Nadu, Kerala, Karnataka, and Andhra Pradesh. It is one of the two main sub-genres of Indian classical music, with the other being Hindustani music. South Indian music has a rich history and is known for its intricate melodies, rhythmic patterns, and vibrant vocal and instrumental performances.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
-  town = "missingo"
-  content_version = 1
+  domain_name = module.home_SouthIndianmusic_hosting.domain_name
+  town = "melomaniac-mansion"
+  content_version = var.SouthIndianmusic.content_version
+}
+
+module "home_SouthIndianTemples_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.SouthIndianTemples.public_path
+  content_version = var.SouthIndianTemples.content_version
+}
+
+resource "terratowns_home" "home_SouthIndianTemples" {
+  name = "Magnificent SouthIndianTemples"
+  description = <<DESCRIPTION
+South Indian temple architecture is renowned for its intricate and awe-inspiring designs, which have been a significant part of Indian cultural and religious heritage for centuries. Here are some key characteristics of South Indian temple architecture and a few famous temples known for their architectural brilliance:
+DESCRIPTION
+  domain_name = module.home_SouthIndianTemples_hosting.domain_name
+  town = "the-nomad-pad"
+  content_version = var.SouthIndianTemples.content_version
 }
